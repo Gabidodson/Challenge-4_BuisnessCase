@@ -6,6 +6,7 @@ let Inventory = [
     {name: "cable",price:3.00,quantity:80, LowStockLevel:40},
     {name: "phone",price:1000,quantity:55, LowStockLevel:21}
 ];
+
 //Function to Display Product Details 
 function displayProductDetails(product) {
     let stockStatus;
@@ -20,4 +21,17 @@ function displayProductDetails(product) {
     console.log (`quantity:${product.quantity}`);
     console.log(`stock Status: ${stockStatus}`);
 }
+
+//Create a Function to Update Product Stock After Sales
+function updateStock(product, unitsSold) {
+    product.quantity -= unitsSold;
+    console.log(`Sold ${unitsSold} units of ${product.name}`);
+    console.log(`Quantity Updated for ${product.name}: ${product.quantity}`);
+
+    if (product.quantity===0){
+        console.log (`This item ${product.name} is out of stock`);
+    } else if (product.quantity <= product.LowStockLevel){
+        console.log(`This item ${product.name} is low in stock `);
+    }
+    }
 
