@@ -1,5 +1,5 @@
 //Create an Inventory Array of Product Objects
-let Inventory = [
+const Inventory = [
     {name: "Keyboard",price:10.00,quantity:40, LowStockLevel:15},
     {name: "mouse",price:5.00,quantity:50, LowStockLevel:20},
     {name: "laptop",price:1200,quantity:35, LowStockLevel:18},
@@ -43,8 +43,18 @@ Inventory.forEach(product => {
    
 //Create a Function to Calculate Total Inventory Value
 function calculateInventoryValue(){
-    let totalValue = Inventory.reduce((total, product) => {
+    const totalValue = Inventory.reduce((total, product) => {
         return total + (product.price * product.quantity);
     }, 0);
     return totalValue.toFixed(2);
+}
+
+//Create a Function to Process a Sale
+function processSale (productname, unitsSold) {
+const product = Inventory.find(item => item.name === productname);
+if (product){
+    updateStock (product, unitsSold);
+} else {
+    console.error(`Error: Product "${productname}" is not in the inventory.`);
+}
 }
