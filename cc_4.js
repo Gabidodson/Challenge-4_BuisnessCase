@@ -20,18 +20,24 @@ function displayProductDetails(product) {
      //tofixed2 makes price rounded to 2 decimal places
     console.log (`quantity:${product.quantity}`);
     console.log(`stock Status: ${stockStatus}`);
-}
+};
 
 //Create a Function to Update Product Stock After Sales
 function updateStock(product, unitsSold) {
     product.quantity -= unitsSold;
-    console.log(`Sold ${unitsSold} units of ${product.name}`);
-    console.log(`Quantity Updated for ${product.name}: ${product.quantity}`);
-
-    if (product.quantity===0){
+    if (product.quantity<=0){
         console.log (`This item ${product.name} is out of stock`);
     } else if (product.quantity <= product.LowStockLevel){
         console.log(`This item ${product.name} is low in stock `);
     }
-    }
+};
 
+//Create a Function to Check Low Stock Products
+function checkLowStock () {
+Inventory.forEach(product => {
+    if (product.quantity <= product.LowStockLevel) {
+        console.log (`${product.name} low stock. Current quantity: ${product.quantity}`);
+    }
+});
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
