@@ -40,4 +40,11 @@ Inventory.forEach(product => {
     }
 });
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+   
+//Create a Function to Calculate Total Inventory Value
+function calculateInventoryValue(){
+    let totalValue = Inventory.reduce((total, product) => {
+        return total + (product.price * product.quantity);
+    }, 0);
+    return totalValue.toFixed(2);
+}
